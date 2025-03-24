@@ -5,7 +5,6 @@ import "./index.css";
 import App from "./App.jsx";
 import NotFoundPage from "./pages/not_found_page/NotFoundPage.jsx";
 import FaleConosco from "./pages/fale_conosco/FaleConosco.jsx";
-import Login from "./pages/login/Login.jsx";
 
 const root = document.getElementById("root");
 
