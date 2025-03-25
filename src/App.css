@@ -10,6 +10,7 @@ body {
 
 :root {
   --green-schema-color: #1f4d2b;
+  --light-green-schema-color: #5ea34f;
   --white-schema-color: #ffffff;
   --black-schema-color: #121212;
 }
@@ -41,6 +42,18 @@ body {
 
   .fale-conosco-mobile {
     border-top: 1px solid var(--black-schema-color);
+    color: var(--white-schema-color);
+    background-color: var(--green-schema-color);
+  }
+
+  .fale-conosco-mobile h1{
+    border-bottom: 2px solid var(--white-schema-color);
+  }
+
+  .card-contato {
+    background-color: var(--light-green-schema-color);
+    color: var(--white-schema-color);
+    width: 95%;
   }
 }
 

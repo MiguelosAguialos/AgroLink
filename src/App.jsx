@@ -8,6 +8,7 @@ import comunidadeAtiva from "./assets/comunidade ativa.svg";
 import transparencia from "./assets/transparencia.svg";
 import "./App.css";
 import HomeCard from "./components/home-card/HomeCard";
+import ContactCard from "./components/contact-card/ContactCard";
 
 function App() {
   const cardsData = [
@@ -36,6 +37,27 @@ function App() {
         "Encontre postos de alimentos próximos de você com apenas alguns cliques.",
     },
   ];
+
+  const contactData = [
+    {
+      image: "bi bi-geo-alt",
+      title: "Transparência",
+      description:
+        "Encontre postos de alimentos próximos de você com apenas alguns cliques.",
+    },
+    {
+      image: "bi bi-telephone",
+      title: "Transparência",
+      description:
+        "Encontre postos de alimentos próximos de você com apenas alguns cliques.",
+    },
+    {
+      image: "bi bi-envelope",
+      title: "Transparência",
+      description:
+        "Encontre postos de alimentos próximos de você com apenas alguns cliques.",
+    }
+  ]
 
   return (
     <body>
@@ -140,8 +162,19 @@ function App() {
             <h1>Fale Conosco!</h1>
             <p>
               Você pode entrar em contato por meio dos canais mostrados abaixo
-              ou mandar uma mensagem para a nossa equipe por aqui mesmo!
+              ou mandar uma mensagem preenchendo o formulário!
             </p>
+            <div class="card-contato d-flex flex-column text-start p-4 rounded">
+              <h1>Contato</h1>
+              <p>Entre em contato com a nossa equipe por meio dos seguintes canais disponíveis:</p>
+              {contactData.map((card) => (
+              <ContactCard
+                image={card.image}
+                title={card.title}
+                description={card.description}
+              />
+            ))}
+            </div>
           </div>
         </section>
         {/* Seção para desktop */}
