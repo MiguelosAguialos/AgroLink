@@ -4,22 +4,49 @@
   box-sizing: border-box;
 }
 
-body {
-  height: 100%;
+:root {
+  --green-schema-color: #1f4d2b;
+  --light-green-schema-color: #5ea34f;
+  --white-schema-color: #ffffff;
+  --black-schema-color: #121212;
 }
 
-#screen {
+body{
   height: 100vh;
 }
 
-@media (max-width: 576px) {
-  #logo-header {
-    height: 20vw;
+@media(min-width:992px){
+  form{
+    width: 50%;
   }
 }
 
-@media (min-width: 576px) {
-  #logo-header {
-    height: 12vw;
-  }
+.main--desktop{
+  height: 100%;
+  width: 100%;
+  padding: 6vw 12vw 6vw 12vw;
+}
+
+.main--content{
+  height: 100%;
+}
+
+.left-side{
+  background-image: url('../../assets/login_image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: false;
+  color: var(--white-schema-color);
+}
+
+.right-side{
+  color: var(--green-schema-color);
+}
+
+.main-title{
+  font-size: 50px;
+}
+
+.main-greeting{
+  font-size: 40px;
 }
