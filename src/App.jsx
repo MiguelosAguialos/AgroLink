@@ -107,8 +107,8 @@ function App() {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">
-                Suporte e Feedback
+              <a class="nav-link" href="#fale-conosco">
+                Fale Conosco
               </a>
             </li>
           </ul>
@@ -132,6 +132,16 @@ function App() {
                 description={card.description}
               />
             ))}
+          </div>
+          <div
+            class="fale-conosco-mobile d-flex align-items-center flex-column p-2"
+            id="fale-conosco"
+          >
+            <h1>Fale Conosco!</h1>
+            <p>
+              Você pode entrar em contato por meio dos canais mostrados abaixo
+              ou mandar uma mensagem para a nossa equipe por aqui mesmo!
+            </p>
           </div>
         </section>
         {/* Seção para desktop */}
@@ -166,6 +176,9 @@ function App() {
               ) : null
             )}
           </div>
+        </section>
+        <section id="fale-conosco">
+          <p>fale conosco</p>
         </section>
       </main>
     </body>

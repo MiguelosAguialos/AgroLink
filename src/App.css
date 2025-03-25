@@ -38,6 +38,10 @@ body {
     font-size: 4vw;
     font-weight: 600;
   }
+
+  .fale-conosco-mobile {
+    border-top: 1px solid var(--black-schema-color);
+  }
 }
 
 @media (min-width: 992px) {
