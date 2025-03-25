@@ -2,36 +2,40 @@ import { useState } from "react";
 import agrolinkLogoFundoVerde from "./assets/logo fundo verde.svg";
 import agrolinkLogoFundoBranco from "./assets/logo fundo branco.svg";
 import firstImage from "./assets/First Image.png";
-import conexao from "./assets/conexao.svg"
-import facilidadeDeAcesso from "./assets/facilidade de acesso.svg"
-import comunidadeAtiva from "./assets/comunidade ativa.svg"
-import transparencia from "./assets/transparencia.svg"
+import conexao from "./assets/conexao.svg";
+import facilidadeDeAcesso from "./assets/facilidade de acesso.svg";
+import comunidadeAtiva from "./assets/comunidade ativa.svg";
+import transparencia from "./assets/transparencia.svg";
 import "./App.css";
 import HomeCard from "./components/home-card/HomeCard";
 
 function App() {
   const cardsData = [
     {
-      "image": facilidadeDeAcesso,
-      "title": "Facilidade de acesso",
-      "description": "Encontre postos de alimentos próximos de você com apenas alguns cliques."
+      image: facilidadeDeAcesso,
+      title: "Facilidade de acesso",
+      description:
+        "Encontre postos de alimentos próximos de você com apenas alguns cliques.",
     },
     {
-      "image": comunidadeAtiva,
-      "title": "Comunidade Ativa",
-      "description": "Encontre postos de alimentos próximos de você com apenas alguns cliques."
+      image: comunidadeAtiva,
+      title: "Comunidade Ativa",
+      description:
+        "Encontre postos de alimentos próximos de você com apenas alguns cliques.",
     },
     {
-      "image": transparencia,
-      "title": "Transparência",
-      "description": "Encontre postos de alimentos próximos de você com apenas alguns cliques."
+      image: transparencia,
+      title: "Transparência",
+      description:
+        "Encontre postos de alimentos próximos de você com apenas alguns cliques.",
     },
     {
-      "image": conexao,
-      "title": "Conexão",
-      "description": "Encontre postos de alimentos próximos de você com apenas alguns cliques."
+      image: conexao,
+      title: "Conexão",
+      description:
+        "Encontre postos de alimentos próximos de você com apenas alguns cliques.",
     },
-  ]
+  ];
 
   return (
     <body>
@@ -67,16 +71,33 @@ function App() {
               </a>
             </li>
             <li className="nav-item dropdown">
-              <a href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" className="nav-link dropdown-toggle">
+              <a
+                href="#"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                className="nav-link dropdown-toggle"
+              >
                 Portal
               </a>
-              <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a className="dropdown-item" href="#">Doador</a></li>
-                <li><a className="dropdown-item" href="#">Consumidor</a></li>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Doador
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Consumidor
+                  </a>
+                </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">
+              <a class="nav-link" href="#comunidade">
                 Comunidade
               </a>
             </li>
@@ -96,25 +117,57 @@ function App() {
       <main class="container-fluid m-0 p-0">
         {/* Seção para mobile */}
         <section class="main--top--mobile d-flex text-center flex-column align-items-center d-lg-none">
-            <img src={firstImage} class="img-fluid" alt="" />
-            <h1>Juntos contra a fome!</h1>
-            <p>Levando você até o seu alimento!</p>
-            <button class="btn">Acesse o portal!</button>
-            <div class="main--cards--mobile container-fluid d-flex flex-column align-items-center">
+          <img src={firstImage} class="img-fluid" alt="" />
+          <h1>Juntos contra a fome!</h1>
+          <p>Levando você até o seu alimento!</p>
+          <button class="btn">Acesse o portal!</button>
+          <div
+            id="comunidade"
+            class="main--cards--mobile container-fluid d-flex flex-column align-items-center"
+          >
             {cardsData.map((card) => (
-              <HomeCard image={card.image} title={card.title} description={card.description} />
+              <HomeCard
+                image={card.image}
+                title={card.title}
+                description={card.description}
+              />
             ))}
-            </div>
+          </div>
         </section>
         {/* Seção para desktop */}
-        <section class="main--top d-none d-lg-flex row text-center">
-          <div class="col">lado esquerdo</div>
-          <div class="col-5 d-flex align-items-center">
-            <img src={firstImage} class="img-fluid" alt="" />
+        <section class="main--top pt-4 d-none d-lg-flex flex-column align-items-center text-center">
+          <h1>Juntos contra a fome!</h1>
+          <p>Levando você até o seu alimento!</p>
+          <img src={firstImage} class="img-fluid" alt="" />
+          <div class="d-flex justify-content-center">
+            <button class="btn mt-5">Acesse o portal!</button>
+          </div>
+        </section>
+        <section id="comunidade" class="container-fluid d-none d-lg-flex row">
+          <div class="col text-center">
+            {cardsData.map((card, index) =>
+              index + 1 <= cardsData.length / 2 ? (
+                <HomeCard
+                  image={card.image}
+                  title={card.title}
+                  description={card.description}
+                />
+              ) : null
+            )}
+          </div>
+          <div class="col text-center">
+            {cardsData.map((card, index) =>
+              index + 1 > cardsData.length / 2 ? (
+                <HomeCard
+                  image={card.image}
+                  title={card.title}
+                  description={card.description}
+                />
+              ) : null
+            )}
           </div>
         </section>
       </main>
-      <footer class="sticky-bottom">footer</footer>
     </body>
   );
 }

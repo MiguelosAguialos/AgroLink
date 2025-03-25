@@ -9,3 +9,9 @@ div {
 p {
   width: 80%;
 }
+
+@media (min-width: 992px) {
+  img {
+    height: 10vw;
+  }
+}
