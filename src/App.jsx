@@ -2,18 +2,19 @@ import React from "react";
 import { Container, Row, Col, Carousel, Button } from "react-bootstrap";
 
 // Imagens
-import agrolinkLogoFundoBranco from "./assets/logo fundo branco.svg";
-import firstImage from "./assets/First Image.png";
+import agrolinkLogoFundoBranco from "./assets/logo-fundo-branco.svg";
+import firstImage from "./assets/First-Image.png";
 import slide01 from "./assets/slide01.png";
 import slide02 from "./assets/slide02.png";
 import slide03 from "./assets/slide03.png";
 import slide04 from "./assets/slide04.png";
 import userIcon from "./assets/user.png";
 import userIcon2 from "./assets/user02.png";
+import herosection from "./assets/herosection.png"
 
 import conexao from "./assets/conexao.svg";
-import facilidadeDeAcesso from "./assets/facilidade de acesso.svg";
-import comunidadeAtiva from "./assets/comunidade ativa.svg";
+import facilidadeDeAcesso from "./assets/facilidade-de-acesso.svg";
+import comunidadeAtiva from "./assets/comunidade-ativa.svg";
 import transparencia from "./assets/transparencia.svg";
 
 import "./App.css";
@@ -21,7 +22,6 @@ import HeaderAgroLink from "./HeaderAgroLink";
 
 import HomeCard from "./components/home-card/HomeCard";
 import ContactCard from "./components/contact-card/ContactCard";
-import FaleConosco from "./pages/fale_conosco/FaleConosco";
 
 function App() {
   // Exemplo de dados para cards (mobile)
@@ -256,9 +256,25 @@ function App() {
           </Container>
         </section>
 
-        {/* Seção Fale Conosco (exibida em ambos) */}
-        <section id="fale-conosco">
-          <FaleConosco />
+        {/*SEÇÃO DE BUSCA*/}
+        <section className="hero-search d-none d-lg-block text-center my-5">
+          <img src={herosection} className="img-fluid mb-4" alt="Hero Section" />
+          <h2>AGROLINK</h2>
+          <p>Juntos, podemos fazer a diferença!</p>
+
+          <h3 className="mt-3">Busca Principal</h3>
+          <div className="search-box d-flex justify-content-center align-items-center mt-4">
+            <input
+              type="text"
+              placeholder="Procure por nome, localização ou tipo de alimento"
+              className="search-input"
+            />
+            <i className="bi bi-filter ms-2"></i>
+          </div>
+          <Button className="btn-search mt-3">Buscar</Button>
+
+          {/* Logo final (opcional) */}
+         < img id="logo" src={agrolinkLogoFundoBranco} alt="AgroLink" className="mt-4" /> 
         </section>
       </main>
     </body>

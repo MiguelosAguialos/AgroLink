@@ -1,22 +1,50 @@
+import React from "react";
 import "./Login.css";
-import { Link } from "react-router";
-import agrolinkLogo from "../../assets/logo.jpg";
+import agrolinkLogo from "../../assets/logo-fundo-branco.svg";
 
 export default function Login() {
   return (
-    <body class="bg-light">
-      <div id="screen" class="row text-center p-0 m-0">
-        <div class="col-3 h-100 bg-success p-3">
-          <img
-            id="logo-header"
-            class="img-fluid rounded"
-            src={agrolinkLogo}
-            alt=""
-          />
-          <h1 class="mt-5">Bem vindo!</h1>
+    <div className="d-flex flex-column justify-content-center align-items-center">
+      {/* Mobile */}
+      <section className="main--mobile d-lg-none container-fluid d-flex flex-column align-items-center">
+        <img src={agrolinkLogo} className="img-fluid" alt="logo" />
+        <h1 className="m-2">AGROLINK PORTAL</h1>
+        <form className="mt-4 d-flex flex-column">
+          <div className="form-group">
+            <label className="pb-1">Email</label>
+            <input type="email" className="form-control" placeholder="Digite seu email!" />
+            <small className="form-text text-muted">Nunca iremos compartilhar este email com ninguém!</small>
+          </div>
+          <div className="form-group mt-4">
+            <label className="pb-1">Senha</label>
+            <input type="password" className="form-control" placeholder="Digite sua senha!" />
+          </div>
+          <button type="submit" className="btn btn-success mt-4 mb-4">Entrar</button>
+        </form>
+      </section>
+
+      {/* Desktop */}
+      <section className="main--desktop d-none d-lg-flex flex-column">
+        <div className="main--content bg-light border rounded row p-0">
+          <div className="left-side col-4 d-flex flex-column align-items-center"></div>
+          <div className="right-side col d-flex flex-column align-items-center justify-content-center">
+            <img src={agrolinkLogo} className="img-fluid" alt="logo" />
+            <h1 className="m-2">AGROLINK PORTAL</h1>
+            <form className="mt-4 d-flex flex-column">
+              <div className="form-group">
+                <label className="pb-1">Email</label>
+                <input type="email" className="form-control" placeholder="Digite seu email!" />
+                <small className="form-text text-muted">Nunca iremos compartilhar este email com ninguém!</small>
+              </div>
+              <div className="form-group mt-4">
+                <label className="pb-1">Senha</label>
+                <input type="password" className="form-control" placeholder="Digite sua senha!" />
+              </div>
+              <button type="submit" className="btn btn-success mt-4 mb-4">Entrar</button>
+            </form>
+          </div>
         </div>
-        <div class="col">col2</div>
-      </div>
-    </body>
+      </section>
+    </div>
   );
 }

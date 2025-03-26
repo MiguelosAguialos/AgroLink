@@ -1,0 +1,120 @@
+.suporte-e-feedback-wrapper {
+    padding: 40px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .suporte-e-feedback-container {
+    max-width: 1100px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Título e subtítulo */
+  .main-title {
+    font-size: 36px;
+    color: #1f4d2b;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center; 
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+  }
+  
+  /* Linha das opções */
+  .options-row {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+  }
+  
+  /* Cada caixa */
+  .box-col {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 40px 30px;
+    margin: 10px;
+    width: 100%;
+    max-width: 400px; /* Ajuste a largura máxima */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Alinhar textos */
+  .box-col h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1f4d2b;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .box-col p {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    max-width: 350px; /* Evita textos muito largos */
+  }
+  
+  /* Botão de suporte */
+  .btn-support {
+    background-color: #1f4d2b;
+    color: #fff;
+    border: 2px solid #1f4d2b;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .btn-support:hover {
+    background-color: #5ea34f;
+    border-color: #5ea34f;
+    color: #fff;
+  }
+  
+  /* Botão de feedback */
+  .btn-feedback {
+    background-color: transparent;
+    color: #1f4d2b;
+    border: 2px solid #1f4d2b;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .btn-feedback:hover {
+    background-color: #1f4d2b;
+    color: #fff;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .options-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .box-col {
+      max-width: 100%;
+    }
+  }
+  
