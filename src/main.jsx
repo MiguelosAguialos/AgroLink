@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import "./index.css";
 import App from "./App.jsx";
 import NotFoundPage from "./pages/not_found_page/NotFoundPage.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = document.getElementById("root");
 

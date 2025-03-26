@@ -1,143 +1,145 @@
+/* ===== RESET ===== */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  height: 100vh;
+html, body {
+  font-family: sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden; /* Removendo scroll horizontal */
+  width: 100%;
 }
 
+/* CORES */
 :root {
   --green-schema-color: #1f4d2b;
-  --light-green-schema-color: #5ea34f;
-  --white-schema-color: #ffffff;
+  --white-schema-color: #fff;
   --black-schema-color: #121212;
+  --light-green-schema-color: #5ea34f;
+  --gray-bg-color: #f8f8f8;
 }
 
-@media (max-width: 992px) {
-  .logo--header {
-    height: 20vw;
-  }
-
-  .main--top--mobile {
-    color: var(--green-schema-color);
-  }
-
-  .main--top--mobile .btn {
-    background-color: var(--green-schema-color);
-    color: var(--white-schema-color);
-    font-size: 5vw;
-  }
-
-  .main--top--mobile h1 {
-    font-size: 6vw;
-    font-weight: 600;
-  }
-
-  .main--top--mobile p {
-    font-size: 4vw;
-    font-weight: 600;
-  }
-
-  .fale-conosco-mobile {
-    border-top: 1px solid var(--black-schema-color);
-    color: var(--white-schema-color);
-    background-color: var(--green-schema-color);
-  }
-
-  .fale-conosco-mobile h1{
-    border-bottom: 2px solid var(--white-schema-color);
-  }
-
-  .card-contato {
-    background-color: var(--light-green-schema-color);
-    color: var(--white-schema-color);
-    width: 95%;
-  }
+/* HEADER VERDE */
+.header-green {
+  background-color: var(--green-schema-color);
+  position: relative;
+  width: 100%;
+  overflow-x: hidden; /* Garantindo que o header não cause scroll */
 }
 
-@media (min-width: 992px) {
-  nav {
-    border-radius: 0 0 10px 10px;
-    margin-left: 12vw;
-    margin-right: 12vw;
-    background-color: #1f4d2b;
-    height: 58px;
-  }
+/* LOGO E USER MAIORES */
+.logo-big {
+  height: 80px; /* Dobra do normal ~40px */
+  width: auto;
+}
+.user-icon {
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-  nav ul {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.2em;
-  }
+/* MENU NA LINHA DE BAIXO */
+.menu-bottom {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Para evitar quebra de layout */
+  gap: 15px;
+  width: 100%;
+}
+.menu-bottom .menu-link {
+  color: var(--white-schema-color);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.menu-bottom .menu-link:hover {
+  color: #ddd;
+}
 
-  .nav-link {
-    color: white;
-    font-weight: bold;
-  }
+/* CONTAINER RESPONSIVO */
+.container-fluid {
+  max-width: 100%;
+  padding: 0;
+}
 
-  .logo--header {
-    height: 5vh;
-  }
+/* SUBMENU USUÁRIO */
+.user-dropdown {
+  position: relative; 
+  cursor: pointer;
+}
+.user-area {
+  display: flex;
+  align-items: center;
+}
+.user-name {
+  white-space: nowrap;
+}
 
-  nav .dropdown ul {
-    margin: 0;
-    padding: 10px 0;
-    display: block;
-    position: absolute;
-    visibility: hidden;
-    left: 14px;
-    top: 130%;
-    opacity: 0;
-    transition: 0.3s;
-    border-radius: 4px;
-    z-index: 99;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-  }
+/* Distância entre user e submenu => top: 45px (metade dos ~90px) */
+.user-dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #fff;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 999;
+  min-width: 160px;
+  display: none; /* O submenu inicia escondido */
+}
 
-  nav .dropdown ul a {
-    padding: 10px 20px;
-    font-size: 15px;
-    text-transform: none;
-  }
+/* Exibir submenu quando ativo */
+.user-dropdown.active .user-dropdown-menu {
+  display: block;
+}
 
-  nav .dropdown ul a i {
-    font-size: 12px;
-  }
+/* LINK DENTRO DO DROPDOWN */
+.dropdown-item {
+  display: block;
+  color: #333;
+  padding: 6px 0;
+  text-decoration: none;
+}
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+.user-dropdown-menu hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 6px 0;
+}
 
-  nav .dropdown:hover > ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  }
+/* BOTÕES SEM FUNDO */
+.btn {
+  background-color: transparent !important;
+  color: var(--green-schema-color) !important;
+  border: 2px solid var(--green-schema-color) !important;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: var(--green-schema-color) !important;
+  color: var(--white-schema-color) !important;
+}
 
-  nav .dropdown .dropdown ul {
-    top: 0;
-    left: -90%;
-    visibility: hidden;
+/* CORREÇÃO MOBILE */
+@media (max-width: 768px) {
+  .user-name {
+    display: none;
   }
-
-  nav .dropdown .dropdown:hover > ul {
-    opacity: 1;
-    top: 0;
-    left: -100%;
-    visibility: visible;
+  .logo-big {
+    height: 60px;
   }
-
-  .main--top {
-    width: 100%;
-    height: 100vh;
+  .user-icon {
+    height: 56px;
+    width: 56px;
   }
-
-  .main--top {
-    color: var(--green-schema-color);
-  }
-
-  .main--top .btn {
-    background-color: var(--green-schema-color);
-    color: var(--white-schema-color);
-    font-size: 20px;
+  .user-dropdown-menu {
+    top: 40px;
+    min-width: 140px;
   }
 }

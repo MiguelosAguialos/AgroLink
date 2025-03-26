@@ -1,0 +1,103 @@
+/* Estilos para a página Fale Conosco com foco em CTA */
+
+.fale-conosco-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    background-color: var(--green-schema-color);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: var(--white-schema-color);
+  }
+  
+  .fale-conosco-container h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--white-schema-color);
+  }
+  
+  .fale-conosco-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--white-schema-color);
+  }
+  
+  .fale-conosco-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .fale-conosco-container input,
+  .fale-conosco-container textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid var(--light-green-schema-color);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: var(--white-schema-color);
+    color: var(--black-schema-color);
+    font-weight: 500;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .fale-conosco-container input::placeholder,
+  .fale-conosco-container textarea::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 500;
+  }
+  
+  .fale-conosco-container input:focus,
+  .fale-conosco-container textarea:focus {
+    border: 2px solid var(--light-green-schema-color);
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(94, 163, 79, 0.5);
+  }
+  
+  .fale-conosco-container textarea {
+    resize: none;
+    height: 120px;
+  }
+  
+  .fale-conosco-container button {
+    background-color: var(--light-green-schema-color);
+    color: var(--white-schema-color);
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .fale-conosco-container button:hover {
+    background-color: var(--white-schema-color);
+    color: var(--green-schema-color);
+    border: 2px solid var(--green-schema-color);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  @media (max-width: 600px) {
+    .fale-conosco-container {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .fale-conosco-container input,
+    .fale-conosco-container textarea {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .fale-conosco-container button {
+      font-size: 16px;
+      padding: 12px;
+    }
+  }
+  
