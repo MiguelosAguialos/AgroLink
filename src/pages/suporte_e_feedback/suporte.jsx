@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import "./suporte.css";
+import HeaderAgroLink from "../../HeaderAgroLink";
 
 function Suporte() {
-
-    
   // Estados para cada campo
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -40,7 +40,7 @@ function Suporte() {
       isValid = false;
     } else {
       // Expressão regular simples para checar formato de email
-      const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         setErrorEmail("Informe um e-mail válido.");
         isValid = false;
@@ -56,7 +56,7 @@ function Suporte() {
     } else {
       // Aqui você pode usar um regex ou lógica mais específica
       // Exemplo simples: checar se tem ao menos 8 dígitos
-      const numbersOnly = phone.replace(/\\D/g, ""); // remove tudo que não é dígito
+      const numbersOnly = phone.replace(/\D/g, "");
       if (numbersOnly.length < 8) {
         setErrorPhone("Informe um número de telefone válido.");
         isValid = false;
@@ -103,69 +103,71 @@ function Suporte() {
   };
 
   return (
-    
+    <>
+      <HeaderAgroLink />
+      <div className="container mt-5">
+        <h1>Formulário de Solicitação de Suporte</h1>
+        <form className="mt-4" onSubmit={handleSubmit}>
+          {/* Nome */}
+          <div className="mb-3">
+            <label className="form-label">Nome</label>
+            <input
+              type="text"
+              className={`form-control ${errorName ? "is-invalid" : ""}`}
+              placeholder="Digite seu nome e sobrenome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            {errorName && <small className="text-danger">{errorName}</small>}
+          </div>
 
+          {/* E-mail */}
+          <div className="mb-3">
+            <label className="form-label">E-mail</label>
+            <input
+              type="email"
+              className={`form-control ${errorEmail ? "is-invalid" : ""}`}
+              placeholder="Digite seu e-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {errorEmail && <small className="text-danger">{errorEmail}</small>}
+          </div>
 
-    <div className="container mt-5">
-      <h1>Formulário de Solicitação de Suporte</h1>
-      <form className="mt-4" onSubmit={handleSubmit}>
-        {/* Nome */}
-        <div className="mb-3">
-          <label className="form-label">Nome</label>
-          <input
-            type="text"
-            className={`form-control ${errorName ? "is-invalid" : ""}`}
-            placeholder="Digite seu nome e sobrenome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          {errorName && <small className="text-danger">{errorName}</small>}
-        </div>
+          {/* Telefone */}
+          <div className="mb-3">
+            <label className="form-label">Telefone</label>
+            <input
+              type="text"
+              className={`form-control ${errorPhone ? "is-invalid" : ""}`}
+              placeholder="Digite seu telefone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            {errorPhone && <small className="text-danger">{errorPhone}</small>}
+          </div>
 
-        {/* E-mail */}
-        <div className="mb-3">
-          <label className="form-label">E-mail</label>
-          <input
-            type="email"
-            className={`form-control ${errorEmail ? "is-invalid" : ""}`}
-            placeholder="Digite seu e-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {errorEmail && <small className="text-danger">{errorEmail}</small>}
-        </div>
+          {/* Descrição do Problema */}
+          <div className="mb-3">
+            <label className="form-label">Descrição do Problema</label>
+            <textarea
+              className={`form-control ${errorMessage ? "is-invalid" : ""}`}
+              rows="4"
+              placeholder="Descreva o problema..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+            {errorMessage && (
+              <small className="text-danger">{errorMessage}</small>
+            )}
+          </div>
 
-        {/* Telefone */}
-        <div className="mb-3">
-          <label className="form-label">Telefone</label>
-          <input
-            type="text"
-            className={`form-control ${errorPhone ? "is-invalid" : ""}`}
-            placeholder="Digite seu telefone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-          {errorPhone && <small className="text-danger">{errorPhone}</small>}
-        </div>
-
-        {/* Descrição do Problema */}
-        <div className="mb-3">
-          <label className="form-label">Descrição do Problema</label>
-          <textarea
-            className={`form-control ${errorMessage ? "is-invalid" : ""}`}
-            rows="4"
-            placeholder="Descreva o problema..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-          {errorMessage && <small className="text-danger">{errorMessage}</small>}
-        </div>
-
-        <button type="submit" className="btn btn-success">
-          Enviar
-        </button>
-      </form>
-    </div>
+          <button type="submit" className="btn btn-success">
+            Enviar
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 

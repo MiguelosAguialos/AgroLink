@@ -1,0 +1,59 @@
+/* Suporte.css */
+
+/* Container maior */
+.container-suporte {
+    background-color: #f9f9f9;   /* cor de fundo suave */
+    border-radius: 8px;         /* cantos arredondados */
+    padding: 2rem;              /* espaçamento interno */
+    max-width: 700px;           /* largura máxima */
+    margin: 2rem auto;          /* centralizar horizontalmente */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* leve sombra */
+  }
+  
+  /* Título principal */
+  .container-suporte h1 {
+    color: #2c3e50;             /* cor do texto do título */
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  /* Rótulos dos campos */
+  .form-label {
+    color: #34495e;             /* cor dos labels */
+    font-weight: 500;
+  }
+  
+  /* Campos de texto e textarea */
+  .form-control {
+    border-radius: 5px;         /* suaviza bordas */
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+  }
+  
+  /* Alterando cor de borda em estado de erro (usando sua lógica is-invalid) */
+  .form-control.is-invalid {
+    border-color: #e74c3c;      /* cor de erro */
+  }
+  
+  /* Mensagens de erro */
+  .text-danger {
+    font-size: 0.875rem;        /* deixa o texto menor */
+    margin-top: 0.25rem;
+  }
+  
+  /* Botão de envio */
+  .btn.btn-success {
+    background-color: #27ae60;  
+    border-color: #27ae60;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Efeito hover no botão */
+  .btn.btn-success:hover {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+  }
+  

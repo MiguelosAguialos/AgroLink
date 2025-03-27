@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderAgroLink from "../../HeaderAgroLink"; // Ajuste o caminho conforme a estrutura do seu projeto
+import HeaderAgroLink from "../../HeaderAgroLink"; 
 import "./suporte_e_feedback.css";
 
 function SuporteEFeedback() {
