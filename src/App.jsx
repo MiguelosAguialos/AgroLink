@@ -3,7 +3,7 @@ import { Container, Row, Col, Carousel, Button } from "react-bootstrap";
 
 // Imagens
 import agrolinkLogoFundoBranco from "./assets/logo-fundo-branco.svg";
-import firstImage from "./assets/first-image.png";
+import firstImage from "./assets/first_image.png";
 import slide01 from "./assets/slide01.png";
 import slide02 from "./assets/slide02.png";
 import slide03 from "./assets/slide03.png";
