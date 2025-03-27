@@ -18,10 +18,10 @@ ReactDOM.createRoot(root).render(
     <BrowserRouter>
       <Routes>
         {/* Rota Principal */}
-        <Route path="/" element={<App />} />
-        
+        <Route path="/" element={<Login />} />
+
         {/* Login */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<App />} />
 
         {/* Suporte e Feedback (Página com dois botões) */}
         <Route path="/suporte-e-feedback" element={<SuporteEFeedback />} />

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Login.css";
 import agrolinkLogo from "../../assets/logo-fundo-branco.svg";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { Navigate } from "react-router-dom";
 
 export default function Login() {
   const testUser = {
@@ -11,15 +12,9 @@ export default function Login() {
   };
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (data.email == testUser.email && data.password == testUser.password) {
-      Swal.fire({
-        title: "Sucesso!",
-        text: "Validação de credenciais está funcionando!",
-        icon: "success",
-        heightAuto: false,
-        timer: 2000,
-      });
+      window.location.href = "/home";
     } else {
       Swal.fire({
         title: "Erro",
