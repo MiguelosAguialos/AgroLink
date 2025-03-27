@@ -3,14 +3,14 @@ import { Container, Row, Col, Carousel, Button } from "react-bootstrap";
 
 // Imagens
 import agrolinkLogoFundoBranco from "./assets/logo-fundo-branco.svg";
-import firstImage from "./assets/First-Image.png";
+import firstImage from "./assets/first-image.png";
 import slide01 from "./assets/slide01.png";
 import slide02 from "./assets/slide02.png";
 import slide03 from "./assets/slide03.png";
 import slide04 from "./assets/slide04.png";
 import userIcon from "./assets/user.png";
 import userIcon2 from "./assets/user02.png";
-import herosection from "./assets/herosection.png"
+import herosection from "./assets/herosection.png";
 
 import conexao from "./assets/conexao.svg";
 import facilidadeDeAcesso from "./assets/facilidade-de-acesso.svg";
@@ -258,7 +258,11 @@ function App() {
 
         {/*SEÇÃO DE BUSCA*/}
         <section className="hero-search d-none d-lg-block text-center my-5">
-          <img src={herosection} className="img-fluid mb-4" alt="Hero Section" />
+          <img
+            src={herosection}
+            className="img-fluid mb-4"
+            alt="Hero Section"
+          />
           <h2>AGROLINK</h2>
           <p>Juntos, podemos fazer a diferença!</p>
 
@@ -274,7 +278,12 @@ function App() {
           <Button className="btn-search mt-3">Buscar</Button>
 
           {/* Logo final (opcional) */}
-         < img id="logo" src={agrolinkLogoFundoBranco} alt="AgroLink" className="mt-4" /> 
+          <img
+            id="logo"
+            src={agrolinkLogoFundoBranco}
+            alt="AgroLink"
+            className="mt-4"
+          />
         </section>
       </main>
     </body>
