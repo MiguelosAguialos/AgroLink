@@ -42,7 +42,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 ### ✅ Features
 
 - [x] Login com credenciais fixas
-- [x] Visualização da HOME com suas respectivas abas
+- [x] Visualização da HOME com suas respectivas abas (consumidor)
 - [x] Validação do formulário de Feedback e Suporte
 
 ---
