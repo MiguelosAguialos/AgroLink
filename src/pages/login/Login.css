@@ -32,7 +32,7 @@ body {
 }
 
 .left-side {
-  background-image: url('../../assets/login_image.jpg');
+  background-image: url("../../assets/login_image.jpg");
   background-size: cover;
   background-position: center;
   color: var(--white-schema-color);
