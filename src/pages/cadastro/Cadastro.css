@@ -1,0 +1,32 @@
+@import '/node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --green-schema-color: #1f4d2b;
+  --light-green-schema-color: #5ea34f;
+  --white-schema-color: #ffffff;
+  --black-schema-color: #121212;
+}
+
+.menu {
+  background-color: var(--green-schema-color);
+}
+
+.menu h1 {
+  color: var(--white-schema-color);
+  font-size: 2.5vw;
+}
+
+.menu p {
+  color: var(--white-schema-color);
+  font-size: 1.2vw;
+}
+
+.menu i {
+  color: var(--white-schema-color);
+}

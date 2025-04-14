@@ -3,7 +3,7 @@ import "./Login.css";
 import agrolinkLogo from "../../assets/logo-fundo-branco.svg";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { Navigate } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 
 export default function Login() {
   const testUser = {
@@ -69,10 +69,10 @@ export default function Login() {
         <div class="main--content bg-light border rounded row p-0">
           <div class="left-side rounded col-4 d-flex flex-column align-items-center"></div>
           <div class="right-side col d-flex flex-column align-items-center justify-content-center">
-            <img src={agrolinkLogo} class="img-fluid" alt="logo" />
+            <img src={agrolinkLogo} alt="logo" />
             <h1 class="m-2">AGROLINK PORTAL</h1>
             <form
-              class="mt-4 d-flex flex-column"
+              class="d-flex flex-column"
               onSubmit={handleSubmit(onSubmit)}
             >
               <div class="form-group">
@@ -86,11 +86,8 @@ export default function Login() {
                   aria-describedby="emailHelp"
                   placeholder="Digite seu email!"
                 />
-                <small id="emailHelp" class="form-text text-muted">
-                  Nunca iremos compartilhar este email com ninguém!
-                </small>
               </div>
-              <div class="form-group mt-4">
+              <div class="form-group mt-2">
                 <label class="pb-1" for="password-field">
                   Senha
                 </label>
@@ -101,10 +98,11 @@ export default function Login() {
                   placeholder="Digite sua senha!"
                 />
               </div>
-              <button type="submit" class="btn btn-success mt-4 mb-4">
+              <button type="submit" class="btn btn-success mt-3 mb-1">
                 Entrar
               </button>
             </form>
+            <NavLink to="/cadastro">Cadastrar-se</NavLink>
           </div>
         </div>
       </section>

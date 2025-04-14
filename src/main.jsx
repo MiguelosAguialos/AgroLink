@@ -10,6 +10,7 @@ import Login from "./pages/login/Login.jsx";
 import SuporteEFeedback from "./pages/suporte_e_feedback/suporte_e_feedback.jsx";
 import Suporte from "./pages/suporte_e_feedback/suporte.jsx";
 import Feedback from "./pages/suporte_e_feedback/feedback.jsx";
+import Cadastro from "./pages/cadastro/Cadastro.jsx";
 
 const root = document.getElementById("root");
 
@@ -17,10 +18,13 @@ ReactDOM.createRoot(root).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* Rota Principal */}
+        {/* Login */}
         <Route path="/" element={<Login />} />
 
-        {/* Login */}
+        {/* Cadastro */}
+        <Route path="/cadastro" element={<Cadastro />} />
+
+        {/* Home */}
         <Route path="/home" element={<App />} />
 
         {/* Suporte e Feedback (Página com dois botões) */}

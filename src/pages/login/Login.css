@@ -19,6 +19,34 @@ body {
   form {
     width: 50%;
   }
+  img {
+    height: 8vw;
+  }
+  h1 {
+    font-size: 2vw;
+  }
+  label {
+    font-size: 1.2vw;
+  }
+  input::placeholder {
+    font-size: 1vw;
+  }
+  input{
+    height: 3vw;
+  }
+  input[type="email"]{
+    font-size: 1vw;
+  }
+  a {
+    color: var(--green-schema-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    -webkit-text-decoration-color: var(--green-schema-color); 
+    text-decoration-color: var(--green-schema-color);
+  }
 }
 
 .main--desktop {
