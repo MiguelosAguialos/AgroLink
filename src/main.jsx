@@ -11,7 +11,9 @@ import SuporteEFeedback from "./pages/suporte_e_feedback/suporte_e_feedback.jsx"
 import Suporte from "./pages/suporte_e_feedback/suporte.jsx";
 import Feedback from "./pages/suporte_e_feedback/feedback.jsx";
 import Cadastro from "./pages/cadastro/Cadastro.jsx";
-import RegisterForm from "./components/register-form/RegisterForm.jsx";
+import CommonRegisterForm from "./components/common-register-form/CommonRegisterForm.jsx";
+import VoluntarioRegisterForm from "./components/voluntario-register-form/VoluntarioRegisterForm.jsx";
+import ConsumidorRegisterForm from "./components/consumidor-register-form/ConsumidorRegisterForm.jsx";
 
 const root = document.getElementById("root");
 
@@ -24,7 +26,9 @@ ReactDOM.createRoot(root).render(
 
         {/* Cadastro */}
         <Route path="/cadastro" element={<Cadastro />}>
-          <Route path=":type" element={<RegisterForm />}></Route>
+          <Route index element={<CommonRegisterForm />}></Route>
+          <Route path="voluntario" element={<VoluntarioRegisterForm />}></Route>
+          <Route path="consumidor" element={<ConsumidorRegisterForm />}></Route>
         </Route>
 
         {/* Home */}
