@@ -30,8 +30,6 @@ function HeaderAgroLink() {
             <Link to="#" className="menu-link">Comunidade</Link>
             <Link to="#" className="menu-link">Sobre Nós</Link>
             <Link to="/suporte-e-feedback" className="menu-link">Suporte e Feedback</Link>
-
-
           </div>
         </div>
       </div>
