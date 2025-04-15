@@ -30,3 +30,16 @@
 .menu i {
   color: var(--white-schema-color);
 }
+
+input[type="radio"]:checked {
+  background-color: var(--green-schema-color);
+}
+
+a {
+  color: var(--green-schema-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

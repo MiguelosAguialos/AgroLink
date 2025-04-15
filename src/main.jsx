@@ -11,6 +11,7 @@ import SuporteEFeedback from "./pages/suporte_e_feedback/suporte_e_feedback.jsx"
 import Suporte from "./pages/suporte_e_feedback/suporte.jsx";
 import Feedback from "./pages/suporte_e_feedback/feedback.jsx";
 import Cadastro from "./pages/cadastro/Cadastro.jsx";
+import RegisterForm from "./components/register-form/RegisterForm.jsx";
 
 const root = document.getElementById("root");
 
@@ -22,7 +23,9 @@ ReactDOM.createRoot(root).render(
         <Route path="/" element={<Login />} />
 
         {/* Cadastro */}
-        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/cadastro" element={<Cadastro />}>
+          <Route path=":type" element={<RegisterForm />}></Route>
+        </Route>
 
         {/* Home */}
         <Route path="/home" element={<App />} />
