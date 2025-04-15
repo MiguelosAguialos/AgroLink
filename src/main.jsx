@@ -10,6 +10,10 @@ import Login from "./pages/login/Login.jsx";
 import SuporteEFeedback from "./pages/suporte_e_feedback/suporte_e_feedback.jsx";
 import Suporte from "./pages/suporte_e_feedback/suporte.jsx";
 import Feedback from "./pages/suporte_e_feedback/feedback.jsx";
+import Cadastro from "./pages/cadastro/Cadastro.jsx";
+import CommonRegisterForm from "./components/common-register-form/CommonRegisterForm.jsx";
+import VoluntarioRegisterForm from "./components/voluntario-register-form/VoluntarioRegisterForm.jsx";
+import ConsumidorRegisterForm from "./components/consumidor-register-form/ConsumidorRegisterForm.jsx";
 
 const root = document.getElementById("root");
 
@@ -17,10 +21,17 @@ ReactDOM.createRoot(root).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* Rota Principal */}
+        {/* Login */}
         <Route path="/" element={<Login />} />
 
-        {/* Login */}
+        {/* Cadastro */}
+        <Route path="/cadastro" element={<Cadastro />}>
+          <Route index element={<CommonRegisterForm />}></Route>
+          <Route path="voluntario" element={<VoluntarioRegisterForm />}></Route>
+          <Route path="consumidor" element={<ConsumidorRegisterForm />}></Route>
+        </Route>
+
+        {/* Home */}
         <Route path="/home" element={<App />} />
 
         {/* Suporte e Feedback (Página com dois botões) */}
