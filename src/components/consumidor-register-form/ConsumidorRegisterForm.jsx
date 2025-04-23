@@ -6,6 +6,7 @@ import { NavLink, useLocation } from "react-router";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2"
 import { useNavigate } from "react-router";
+import { createUserConsumidor } from "../../services/auth.service";
 
 export default function ConsumidorRegisterForm(){
 
@@ -17,7 +18,29 @@ export default function ConsumidorRegisterForm(){
         for(let item in data){
             user[item] = data[item] 
         }
-        navigate("/home")
+        const res = await createUserConsumidor(user)
+        if(res.code == 400){
+          Swal.fire({
+            title: res.title,
+            text: res.message,
+            icon: "error",
+            confirmButtonText: "Voltar",
+            heightAuto: false,
+            timer: 2000,
+          });
+        } 
+        if(res.code == 200){
+          Swal.fire({
+            title: 'Cadastrado!',
+            text: res.message,
+            icon: "success",
+            confirmButtonText: "Voltar",
+            heightAuto: false,
+            timer: 2000,
+          }).then((res) => {
+            navigate("/home")
+          });
+        }
     };
     
     return (

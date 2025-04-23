@@ -4,18 +4,17 @@ import agrolinkLogo from "../../assets/logo-fundo-branco.svg";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { NavLink, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router";
+import { login } from "../../services/auth.service";
 
 export default function Login() {
-  const testUser = {
-    email: "teste@gmail.com",
-    password: "123",
-  };
+
+  let navigate = useNavigate();
 
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-    if (data.email == testUser.email && data.password == testUser.password) {
-      window.location.href = "/home";
-    } else {
+    const res = await login(data)
+    if(res.code == 400){
       Swal.fire({
         title: "Erro",
         text: "Credenciais inválidas!",
@@ -24,6 +23,8 @@ export default function Login() {
         heightAuto: false,
         timer: 2000,
       });
+    } else {
+      navigate('home')
     }
   };
   return (
