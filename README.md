@@ -1,12 +1,76 @@
-# React + Vite
+<h1 align="center">Agrolink - Portal</h1>
+<p align="center">🚀 Sistema de conexão entre doadores de alimentos e consumidores</p>
+<p align="center">Geração de relatório | Geolocalização | Comunidade e feedback | Gerenciamento do ambiente</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+<h3 align="center"> 
+	🚧 Agrolink 🚀 Em construção... 🚧
+</h3>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+### 🛠 Tecnologias e dependências
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Node JS](https://nodejs.org/pt) | Tec
+- [React](https://react.dev/) | FrameWork
+- [React Router](https://reactrouter.com/) | Lib
+- [Bootstrap](https://getbootstrap.com/) | Lib
+- [React Hook Form](https://react-hook-form.com/) | Lib
+- [Sweet Alert 2](https://sweetalert2.github.io/) | Lib
+
+---
+
+### 🎲 Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Node JS](https://nodejs.org/pt).
+
+---
+
+### ⇣ Instalação e execução do projeto
+
+1. Baixe a pasta do projeto (https://github.com/MiguelosAguialos/AgroLink)
+2. Navegue até a pasta do projeto usando um terminal: `cd {caminho do projeto}`
+3. Execute o seguinte comando: `npm i`. Este comando instala todas as dependências necessárias.
+4. Execute o seguinte comando para rodar o programa: `npm run dev`
+
+---
+
+### ✅ Features
+
+- [x] Login com credenciais fixas
+- [x] Visualização da HOME com suas respectivas abas (consumidor)
+- [x] Validação do formulário de Feedback e Suporte
+
+---
+
+### ⌚ Futuras Features
+
+- [x] Sistema de cadastro personalizado (posto de alimentos e consumidor)
+- [x] Geração de relatórios
+- [x] Ferramenta de Log
+- [x] Busca por geolocalização
+- [x] Implementar efetivamente o Feedback e Suporte
+- [x] Criação do banco de dados completo, para DEV, QA e PROD
+- [x] Construção do chat da comunidade usando tecnologia websocket para comunicação em tempo real
+- [x] Implementação de sistema de notificações por email e telefone
+
+---
+
+### 😎 Responsáveis pelo projeto
+
+<ul>
+  <li>👉 José Vitor | Rm: 560413</li>
+  <li>👉 Miguel Aguiar Fernandes | Rm: 559589</li>
+  <li>👉 Yasmin Baracat | Rm: 559464</li>
+</ul>
+
+---
+
+### 🚀 Deploy
+
+Para acessar o ambiente de desenvolvimento, acesse o seguite link:
+<>

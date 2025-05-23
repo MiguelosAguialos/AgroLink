@@ -1,0 +1,7 @@
+.form-check a{
+    text-decoration: underline;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--green-schema-color);
+}

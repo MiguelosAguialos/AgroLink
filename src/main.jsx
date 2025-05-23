@@ -18,11 +18,18 @@ ReactDOM.createRoot(root).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* Rota Principal */}
-        <Route path="/" element={<App />} />
-        
         {/* Login */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+
+        {/* Cadastro */}
+        <Route path="/cadastro" element={<Cadastro />}>
+          <Route index element={<CommonRegisterForm />}></Route>
+          <Route path="voluntario" element={<VoluntarioRegisterForm />}></Route>
+          <Route path="consumidor" element={<ConsumidorRegisterForm />}></Route>
+        </Route>
+
+        {/* Home */}
+        <Route path="/home" element={<App />} />
 
         {/* Suporte e Feedback (Página com dois botões) */}
         <Route path="/suporte-e-feedback" element={<SuporteEFeedback />} />

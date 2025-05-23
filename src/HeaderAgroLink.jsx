@@ -32,7 +32,7 @@ function HeaderAgroLink() {
         {/* Menu inferior */}
         <div className="row mt-3 bottom-header">
           <div className="col d-flex justify-content-center gap-4 menu-bottom">
-            <Link to="/" className="menu-link">Home</Link>
+            <Link to="/home" className="menu-link">Home</Link>
             <Link to="#" className="menu-link">Postos de Alimentos</Link>
             <Link to="#" className="menu-link">Comunidade</Link>
             <Link to="#" className="menu-link">Sobre Nós</Link>
