@@ -10,6 +10,7 @@ import Login from "./pages/login/Login.jsx";
 import SuporteEFeedback from "./pages/suporte_e_feedback/suporte_e_feedback.jsx";
 import Suporte from "./pages/suporte_e_feedback/suporte.jsx";
 import Feedback from "./pages/suporte_e_feedback/feedback.jsx";
+import UserProfile from "./pages/perfil_usuario/UserProfile.jsx";
 
 const root = document.getElementById("root");
 
@@ -34,6 +35,9 @@ ReactDOM.createRoot(root).render(
 
         {/* 404: Página não encontrada */}
         <Route path="*" element={<NotFoundPage />} />
+
+        {/* User Profile */}
+        <Route path="/perfil_usuario" element={<UserProfile />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
