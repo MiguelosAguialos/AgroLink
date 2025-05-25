@@ -8,13 +8,12 @@ import { useNavigate } from "react-router";
 import { login } from "../../services/auth.service";
 
 export default function Login() {
-
   let navigate = useNavigate();
 
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-    const res = await login(data)
-    if(res.code == 400){
+    const res = await login(data);
+    if (res.code == 400) {
       Swal.fire({
         title: "Erro",
         text: "Credenciais inválidas!",
@@ -24,7 +23,8 @@ export default function Login() {
         timer: 2000,
       });
     } else {
-      navigate('home')
+      localStorage.setItem("userMail", res.email);
+      navigate("home");
     }
   };
   return (
@@ -72,10 +72,7 @@ export default function Login() {
           <div class="right-side col d-flex flex-column align-items-center justify-content-center">
             <img src={agrolinkLogo} alt="logo" />
             <h1 class="m-2">AGROLINK PORTAL</h1>
-            <form
-              class="d-flex flex-column"
-              onSubmit={handleSubmit(onSubmit)}
-            >
+            <form class="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
               <div class="form-group">
                 <label class="pb-1" for="email-field">
                   Email

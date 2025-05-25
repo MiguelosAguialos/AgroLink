@@ -10,6 +10,10 @@ import Login from "./pages/login/Login.jsx";
 import SuporteEFeedback from "./pages/suporte_e_feedback/suporte_e_feedback.jsx";
 import Suporte from "./pages/suporte_e_feedback/suporte.jsx";
 import Feedback from "./pages/suporte_e_feedback/feedback.jsx";
+import Cadastro from "./pages/cadastro/Cadastro.jsx";
+import CommonRegisterForm from "./components/common-register-form/CommonRegisterForm.jsx";
+import VoluntarioRegisterForm from "./components/voluntario-register-form/VoluntarioRegisterForm.jsx";
+import ConsumidorRegisterForm from "./components/consumidor-register-form/ConsumidorRegisterForm.jsx";
 import UserProfile from "./pages/perfil_usuario/UserProfile.jsx";
 
 const root = document.getElementById("root");

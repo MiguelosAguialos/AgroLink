@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Row,
@@ -11,10 +11,21 @@ import {
 import "./UserProfile.css";
 import avatar from "../../assets/user.png";
 import HeaderAgroLink from "../../HeaderAgroLink";
+import { getUserInfo, updateUser } from "../../services/user.service";
 
 function UserProfile() {
-  // Estado para senha "real" atual:
-  const [realPassword, setRealPassword] = useState("123456");
+  const [user, setUser] = useState(null);
+  const [editedUser, setEditedUser] = useState(user);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  useEffect(() => {
+    getConsumidorInfo().then((res) => {
+      setUser(res);
+      setEditedUser(res);
+    });
+  }, []);
 
   // Estados para modais
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -29,23 +40,6 @@ function UserProfile() {
   const [twoFactor, setTwoFactor] = useState(false);
   const [notifications, setNotifications] = useState(true);
 
-  // Usuário e endereço
-  const [userName, setUserName] = useState("Tuliovisk");
-  const [editedName, setEditedName] = useState(userName);
-
-  const [address, setAddress] = useState({
-    logradouro: "Rua Exemplo",
-    numero: "123",
-    complemento: "Apto 45",
-    cidadeCep: "São Paulo - SP | 01234-567",
-  });
-  const [editedAddress, setEditedAddress] = useState({ ...address });
-
-  // Campos senha modal
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
   // Funções toggle
   const toggleTwoFactor = () => setTwoFactor(!twoFactor);
   const toggleNotifications = () => setNotifications(!notifications);
@@ -55,7 +49,7 @@ function UserProfile() {
     setWrongPassword(false);
     setPasswordMismatch(false);
 
-    if (currentPassword !== realPassword) {
+    if (user.password !== currentPassword) {
       setWrongPassword(true);
       return;
     }
@@ -64,26 +58,35 @@ function UserProfile() {
       setPasswordMismatch(true);
       return;
     }
-
-    setRealPassword(newPassword);
-
+    user.password = newPassword;
+    updateUser(user);
     setShowPasswordModal(false);
-    setCurrentPassword("");
-    setNewPassword("");
-    setConfirmPassword("");
   };
 
   // Salvar endereço
   const handleAddressSave = () => {
-    setAddress({ ...editedAddress });
+    setUser(editedUser);
+    updateUser(editedUser);
     setShowAddressModal(false);
   };
 
   // Salvar nome
   const handleNameSave = () => {
-    setUserName(editedName);
+    setUser(editedUser);
+    updateUser(editedUser);
     setShowNameModal(false);
   };
+
+  const handleCancelEdit = () => {
+    setShowAddressModal(false);
+    setShowNameModal(false);
+    setShowPasswordModal(false);
+    setEditedUser(user);
+  };
+
+  if (user == null) {
+    return <p>Carregando...</p>; // Exibe uma tela de carregamento temporária
+  }
 
   return (
     <>
@@ -97,16 +100,15 @@ function UserProfile() {
             <img src={avatar} alt="Avatar" className="user-avatar" />
           </Col>
           <Col md={9} className="d-flex flex-column justify-content-center">
-           <div className="user-info">
-            <h2 className="user-name">{userName}</h2>
-            <button
+            <div className="user-info">
+              <h2 className="user-name">{user.nome}</h2>
+              <button
                 className="edit-link mt-1 d-block"
                 onClick={() => setShowNameModal(true)}
-            >
+              >
                 Editar nome
-            </button>
+              </button>
             </div>
-
           </Col>
         </Row>
 
@@ -116,7 +118,7 @@ function UserProfile() {
             <div className="settings-section">
               <div className="user-settings">
                 <h5>Senha atual:</h5>
-                <p>**************</p>
+                <p>{"*".repeat(user.password.length)}</p>
                 <button
                   className="edit-link"
                   onClick={() => setShowPasswordModal(true)}
@@ -127,14 +129,12 @@ function UserProfile() {
 
               <div className="user-settings">
                 <h5>Endereço atual:</h5>
-                <p>Logradouro: {address.logradouro}</p>
-                <p>Número: {address.numero}</p>
-                <p>Complemento: {address.complemento}</p>
-                <p>{address.cidadeCep}</p>
+                <p>Logradouro: {user.endereco}</p>
+                <p>Complemento: {user.complemento}</p>
+                <p>CEP: {user.CEP}</p>
                 <button
                   className="edit-link"
                   onClick={() => {
-                    setEditedAddress({ ...address });
                     setShowAddressModal(true);
                   }}
                 >
@@ -144,7 +144,9 @@ function UserProfile() {
 
               <div className="user-settings">
                 <div className="switch-container">
-                  <span className="switch-label">Verificação em duas etapas</span>
+                  <span className="switch-label">
+                    Verificação em duas etapas
+                  </span>
                   <div
                     className={`switch ${twoFactor ? "on" : ""}`}
                     onClick={toggleTwoFactor}
@@ -163,11 +165,11 @@ function UserProfile() {
 
           <Col md={8}>
             <Row className="stats-row text-center">
-              {["Doações", "Interações", "Eventos"].map((label, index) => (
+              {["Quantidade Doações"].map((label, index) => (
                 <Col key={label} md={4}>
                   <Card className="stats-card">
                     <Card.Body>
-                      <h4>{[12, 34, 5][index]}</h4>
+                      <h4>{[0, 34, 5][index]}</h4>
                       <p>{label}</p>
                     </Card.Body>
                   </Card>
@@ -178,14 +180,15 @@ function UserProfile() {
         </Row>
 
         {/* Histórico de doações */}
-        <Row className="g-4">
+        {/* <Row className="g-4">
           {[1, 2, 3].map((item) => (
             <Col md={4} key={item}>
               <Card className="history-card p-3">
                 <Card.Body>
                   <Card.Title>Doação #{item}</Card.Title>
                   <Card.Text>
-                    Doação de frutas e verduras no posto X. Obrigado por colaborar!
+                    Doação de frutas e verduras no posto X. Obrigado por
+                    colaborar!
                   </Card.Text>
                   <Button variant="success" size="sm">
                     Ver detalhes
@@ -194,7 +197,7 @@ function UserProfile() {
               </Card>
             </Col>
           ))}
-        </Row>
+        </Row> */}
 
         {/* Modal: Alterar Senha */}
         <Modal
@@ -233,19 +236,14 @@ function UserProfile() {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </Form.Group>
-              {wrongPassword && (
-                <p className="text-danger">SENHA INCORRETA</p>
-              )}
+              {wrongPassword && <p className="text-danger">SENHA INCORRETA</p>}
               {passwordMismatch && (
                 <p className="text-danger">As senhas não coincidem</p>
               )}
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button
-              variant="secondary"
-              onClick={() => setShowPasswordModal(false)}
-            >
+            <Button variant="secondary" onClick={handleCancelEdit}>
               Cancelar
             </Button>
             <Button variant="success" onClick={handlePasswordSave}>
@@ -265,27 +263,13 @@ function UserProfile() {
           <Modal.Body>
             <Form>
               <Form.Group className="mb-3">
-                <Form.Label>Logradouro</Form.Label>
+                <Form.Label>Endereço</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Rua Exemplo"
-                  value={editedAddress.logradouro}
+                  placeholder={user.endereco}
+                  value={editedUser.endereco}
                   onChange={(e) =>
-                    setEditedAddress({
-                      ...editedAddress,
-                      logradouro: e.target.value,
-                    })
-                  }
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Número</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="123"
-                  value={editedAddress.numero}
-                  onChange={(e) =>
-                    setEditedAddress({ ...editedAddress, numero: e.target.value })
+                    setEditedUser({ ...editedUser, endereco: e.target.value })
                   }
                 />
               </Form.Group>
@@ -293,11 +277,11 @@ function UserProfile() {
                 <Form.Label>Complemento</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Apto 45"
-                  value={editedAddress.complemento}
+                  placeholder={user.complemento}
+                  value={editedUser.complemento}
                   onChange={(e) =>
-                    setEditedAddress({
-                      ...editedAddress,
+                    setEditedUser({
+                      ...editedUser,
                       complemento: e.target.value,
                     })
                   }
@@ -307,20 +291,17 @@ function UserProfile() {
                 <Form.Label>Cidade - CEP</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="São Paulo - 01234-567"
-                  value={editedAddress.cidadeCep}
+                  placeholder={user.CEP}
+                  value={editedUser.CEP}
                   onChange={(e) =>
-                    setEditedAddress({ ...editedAddress, cidadeCep: e.target.value })
+                    setEditedUser({ ...editedUser, CEP: e.target.value })
                   }
                 />
               </Form.Group>
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button
-              variant="secondary"
-              onClick={() => setShowAddressModal(false)}
-            >
+            <Button variant="secondary" onClick={handleCancelEdit}>
               Cancelar
             </Button>
             <Button variant="success" onClick={handleAddressSave}>
@@ -340,13 +321,15 @@ function UserProfile() {
               <Form.Control
                 type="text"
                 placeholder="Digite seu nome"
-                value={editedName}
-                onChange={(e) => setEditedName(e.target.value)}
+                value={editedUser.nome}
+                onChange={(e) =>
+                  setEditedUser({ ...editedUser, nome: e.target.value })
+                }
               />
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={() => setShowNameModal(false)}>
+            <Button variant="secondary" onClick={handleCancelEdit}>
               Cancelar
             </Button>
             <Button variant="success" onClick={handleNameSave}>
@@ -357,6 +340,11 @@ function UserProfile() {
       </Container>
     </>
   );
+}
+
+async function getConsumidorInfo() {
+  const res = await getUserInfo(localStorage.getItem("userMail"));
+  return res;
 }
 
 export default UserProfile;

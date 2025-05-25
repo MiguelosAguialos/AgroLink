@@ -15,12 +15,16 @@ function HeaderAgroLink() {
           {/* Logo */}
           <div className="col-auto d-flex align-items-center brand-col">
             <Link to="/">
-              <img src={logoFundoVerde} alt="AgroLink Logo" className="logo-big" />
+              <img
+                src={logoFundoVerde}
+                alt="AgroLink Logo"
+                className="logo-big"
+              />
             </Link>
           </div>
 
           {/* Área do Usuário + Botão de Perfil */}
-          {!isOnProfilePage && (
+          {!isOnProfilePage && localStorage.getItem("userMail") != null && (
             <div className="col-auto d-flex align-items-center">
               <Link to="/perfil_usuario" className="menu-link">
                 <img src={avatar} alt="Usuário" className="user-icon" />
@@ -32,11 +36,21 @@ function HeaderAgroLink() {
         {/* Menu inferior */}
         <div className="row mt-3 bottom-header">
           <div className="col d-flex justify-content-center gap-4 menu-bottom">
-            <Link to="/home" className="menu-link">Home</Link>
-            <Link to="#" className="menu-link">Postos de Alimentos</Link>
-            <Link to="#" className="menu-link">Comunidade</Link>
-            <Link to="#" className="menu-link">Sobre Nós</Link>
-            <Link to="/suporte-e-feedback" className="menu-link">Suporte e Feedback</Link>
+            <Link to="/home" className="menu-link">
+              Home
+            </Link>
+            <Link to="#" className="menu-link">
+              Postos de Alimentos
+            </Link>
+            <Link to="#" className="menu-link">
+              Comunidade
+            </Link>
+            <Link to="#" className="menu-link">
+              Sobre Nós
+            </Link>
+            <Link to="/suporte-e-feedback" className="menu-link">
+              Suporte e Feedback
+            </Link>
           </div>
         </div>
       </div>
