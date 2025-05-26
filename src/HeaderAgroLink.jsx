@@ -1,9 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logoFundoVerde from "./assets/logo-fundo-verde.svg";
 import userIcon from "./assets/user02.png";
+import avatar from "./assets/user.png";
 
 function HeaderAgroLink() {
+  const location = useLocation();
+  const isOnProfilePage = location.pathname === "/perfil_usuario"; // ajuste conforme sua rota
+
   return (
     <header className="header-green p-3">
       <div className="container-fluid">
@@ -19,13 +23,14 @@ function HeaderAgroLink() {
             </Link>
           </div>
 
-          {/* Área do Usuário + Botão de Entrar */}
-          <div className="col-auto d-flex align-items-center">
-            <Link to="/login" className="btn btn-outline-light me-3">
-              Entrar
-            </Link>
-            <img src={userIcon} alt="Usuário" className="user-icon" />
-          </div>
+          {/* Área do Usuário + Botão de Perfil */}
+          {!isOnProfilePage && localStorage.getItem("userMail") != null && (
+            <div className="col-auto d-flex align-items-center">
+              <Link to="/perfil_usuario" className="menu-link">
+                <img src={avatar} alt="Usuário" className="user-icon" />
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Menu inferior */}
