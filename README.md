@@ -44,12 +44,12 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - [x] Login com credenciais fixas
 - [x] Visualização da HOME com suas respectivas abas (consumidor)
 - [x] Validação do formulário de Feedback e Suporte
+- [x] Sistema de cadastro personalizado (posto de alimentos e consumidor)
 
 ---
 
 ### ⌚ Futuras Features
 
-- [x] Sistema de cadastro personalizado (posto de alimentos e consumidor)
 - [x] Geração de relatórios
 - [x] Ferramenta de Log
 - [x] Busca por geolocalização
@@ -70,7 +70,16 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 ---
 
-### 🚀 Deploy
+### 🚀 Deploy e Vídeo
 
-Para acessar o ambiente de desenvolvimento, acesse o seguite link:
-<>
+Para visualizar o deploy, acesse o link:
+<https://agrolink-dev.vercel.app/>
+Para visualizar o vídeo de apresentação, siga o link:
+<https://youtu.be/2afn4-pbGs4>
+
+---
+
+### 📝 Observações
+
+Apenas o deploy não vai oferecer a experiência completa, pois necessita de um backend. Caso queira avaliar o projeto completo,
+baixe e execute o backend seguindo o link do repositório: https://github.com/MiguelosAguialos/agrolink-backend
